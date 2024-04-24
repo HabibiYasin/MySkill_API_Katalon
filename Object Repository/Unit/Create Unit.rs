@@ -21,7 +21,7 @@
    <followRedirects>false</followRedirects>
    <httpBody></httpBody>
    <httpBodyContent>{
-  &quot;text&quot;: &quot;{\n   \&quot;name\&quot;: \&quot;gram\&quot;,\n   \&quot;description\&quot;: \&quot;weight measurement\&quot;\n}&quot;,
+  &quot;text&quot;: &quot;{\n    \&quot;name\&quot;: \&quot;gram\&quot;,\n   \&quot;description\&quot;: \&quot;weight measurement\&quot;\n\n}\n&quot;,
   &quot;contentType&quot;: &quot;application/json&quot;,
   &quot;charset&quot;: &quot;UTF-8&quot;
 }</httpBodyContent>
@@ -29,10 +29,18 @@
    <httpHeaderProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
+      <name>Content-Type</name>
+      <type>Main</type>
+      <value>application/json</value>
+      <webElementGuid>e472c3aa-e395-43e4-b19b-3905ba904358</webElementGuid>
+   </httpHeaderProperties>
+   <httpHeaderProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
       <name>Authorization</name>
       <type>Main</type>
       <value>Bearer ${token}</value>
-      <webElementGuid>e472c3aa-e395-43e4-b19b-3905ba904358</webElementGuid>
+      <webElementGuid>44f1d88b-e090-4091-92c9-6a95fb17fe76</webElementGuid>
    </httpHeaderProperties>
    <katalonVersion>9.4.0</katalonVersion>
    <maxResponseSize>-1</maxResponseSize>
@@ -49,7 +57,7 @@
    <socketTimeout>-1</socketTimeout>
    <useServiceInfoFromWsdl>true</useServiceInfoFromWsdl>
    <variables>
-      <defaultValue>GlobalVariable.baseUrlAPI</defaultValue>
+      <defaultValue>GlobalVariable.baseUrl</defaultValue>
       <description></description>
       <id>9b192c72-983c-42d9-8e17-6073ad5608d8</id>
       <masked>false</masked>

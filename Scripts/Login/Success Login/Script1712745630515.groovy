@@ -18,17 +18,19 @@ import internal.GlobalVariable as GlobalVariable
 import groovy.json.JsonSlurper as jsonSluper
 import org.openqa.selenium.Keys as Keys
 
-
-response = WS.sendRequest(findTestObject('Login/Get Token', [('baseUrl') : GlobalVariable.baseUrlAPI]))
+response = WS.sendRequest(findTestObject('Login/Get Token', [('baseUrl') : GlobalVariable.baseUrl]))
 
 WS.verifyResponseStatusCode(response, 201)
 
 WS.containsString(response, 'accessToken', false)
 
 //parse response
-def jsonSluper = new jsonSluper();
+def jsonSluper = new jsonSluper()
+
 def jsonResponse = jsonSluper.parseText(response.getResponseBodyContent())
 
 //save token to global variable
 GlobalVariable.token = jsonResponse.data.accessToken
+
 System.out.println(GlobalVariable.token)
+

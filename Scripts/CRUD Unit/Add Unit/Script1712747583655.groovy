@@ -18,7 +18,7 @@ import internal.GlobalVariable as GlobalVariable
 import groovy.json.JsonSlurper as jsonSluper
 import org.openqa.selenium.Keys as Keys
 
-response = WS.sendRequest(findTestObject('Login/Get Token', [('baseUrl') : GlobalVariable.baseUrlAPI]))
+response = WS.sendRequest(findTestObject('Login/Get Token', [('baseUrl') : GlobalVariable.baseUrl]))
 
 WS.verifyResponseStatusCode(response, 201)
 
@@ -34,9 +34,9 @@ GlobalVariable.token = jsonResponse.data.accessToken
 
 System.out.println(GlobalVariable.token)
 
-restPostUnit = WS.sendRequest(findTestObject('Unit/Create Unit', [('baseUrl') : GlobalVariable.baseUrlAPI, ('token') : GlobalVariable.token]))
+resPostUnit = WS.sendRequest(findTestObject('Unit/Create Unit', [('baseUrl') : GlobalVariable.baseUrl, ('token') : GlobalVariable.token]))
 
-WS.verifyResponseStatusCode(restPostUnit, 201)
+WS.verifyResponseStatusCode(resPostUnit, 201)
 
-WS.containsString(restPostUnit, 'unitID', false)
+WS.containsString(resPostUnit, 'Unit berhasil ditambahkan', false)
 
